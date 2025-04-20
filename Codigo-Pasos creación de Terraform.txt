@@ -1,0 +1,53 @@
+## Ver si uno se encuentra en /home/Ubuntu
+
+pwd
+
+## De no ser asi:
+
+cd ~
+
+
+## Instalar lo necesario para inicializar terraform
+
+sudo apt update
+sudo snap install terraform --classic
+
+## Crear el directorio para las credenciales de aws:
+
+mkdir -p /home/ubuntu/.aws
+
+## Colocar las credenciales:
+
+nano /home/ubuntu/.aws/credentials
+[default]
+aws_access_key_id = <tu_access_key_id>
+aws_secret_access_key = <tu_secret_access_key>
+aws_session_token = <tu_session_token>
+
+## Crear el directorio para la prueba de Terraform en /home/ubuntu y entra:
+
+mkdir ~/terraform_project
+cd ~/terraform_project
+
+## Crea el archivo main.tf:
+
+nano main.tf
+
+## Se copia lo que esta dentro del repositorio pero cambiándolo lo de la región a la que vamos a usar y el AMI de la misma MV que estamos usando
+
+## Se inicializar Terraform:
+
+terraform init
+
+
+## Se verifica la configuración:
+
+terraform plan
+
+## Se aplica la configuración:
+
+terraform apply
+
+
+## Se escribe " YES " 
+ 
